@@ -1,6 +1,6 @@
 @extends('layout.base')
 @section('tables')
-	<div class="card shadow col-6 mx-auto" style="margin-bottom: 15%; margin-top: 10%">
+	<div class="card shadow">
 		<div class="card-header py-3 d-flex justify-content-between">
 			<h4>Edit Transtype</h4>
 		</div>

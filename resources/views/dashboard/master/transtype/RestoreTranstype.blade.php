@@ -3,10 +3,9 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex justify-content-between">
-        <h3>Data Transtype</h3>
+        <h3>Restore Data Transtype</h3>
         <div>
-            <a type="button" class="btn btn-primary" href="/transtype/restore">Restore</a>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tambahTranstype">Add</button>    
+            <a href="/transtype" class="btn btn-secondary" type="button">Back</a>
         </div>
     </div>
     <div class="card-body">
@@ -31,6 +30,9 @@
                             <a href="/transtype/restore/{{ $item->code }}" class="btn btn-primary">
                                 <i class='bx bxs-left-top-arrow-circle'></i> Restore
                             </a>
+                            <a href="#" class="btn btn-danger delete" data-id="{{ $item->code }}" data-nama="{{ $item->name }}">
+                                <i class="fas fa-trash-alt"></i> Delete Permanen
+                            </a>
                         </td>
                     </tr>
                     @endif
@@ -40,5 +42,25 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+<script>
+    $('.delete').click(function(){
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
+        swal({
+            title: "Apakah Kamu Yakin?",
+            text: "Kamu akan menghapus permanen data dengan nama "+nama+"!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/transtype/deletepermanen/"+id;
+            }
+        });
+    });
+</script>
 <!-- /.container-fluid -->
 @endsection

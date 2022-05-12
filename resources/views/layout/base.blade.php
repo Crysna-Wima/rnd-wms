@@ -30,7 +30,7 @@
 <body id="page-top">
 
      <!-- Topbar -->
-     <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+     <nav class="navbar navbar-expand navbar-light bg-info text-light topbar static-top shadow">
 
         <!-- Sidebar Toggle (Topbar) -->
         <form class="form-inline">
@@ -40,14 +40,14 @@
         </form>
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="text-decoration: none; color: black">
-            <div class="" style="font-size: larger">GRAHA SARANA GRESIK</div>
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="text-decoration: none; color: rgb(255, 255, 255)">
+            <div class="" style="font-size: larger"><b>GRAHA SARANA GRESIK</b></div>
         </a>
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
                 
-            <span class="mr-2 d-none d-lg-inline text-gray-600 my-auto" id="time"></span>         
+            <span class="mr-2 d-none d-lg-inline text-white my-auto" id="time"></span>         
 
             <script>
                 var tanggallengkap = new String();
@@ -72,10 +72,10 @@
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">CRYSNA</span>
+                    <span class="mr-2 d-none d-lg-inline text-white small">CRYSNA</span>
                     <img class="img-profile rounded-circle"
                         src="{{url('assets/img/undraw_profile.svg')}}">
-                        <i class='bx bx-chevron-down'></i>
+                        <i class='bx bx-chevron-down text-white'></i>
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -108,29 +108,40 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
-
+        <ul class="navbar-nav bg-white text-white sidebar shadow" id="accordionSidebar">
+            <div class="sidebar-search m-3">
+                <div>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-menu" placeholder="Search...">
+                    <div class="input-group-append">
+                      <span class="input-group-text bg-info">
+                        <i class="fa fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+            <li class="nav-item">
+                <a class="nav-link custom-link" href="/">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="custom-link p-2">Dashboard</span></a>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            {{-- <hr class="sidebar-divider"> --}}
 
             <!-- Heading -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed custom-link" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Data Master</span>
+                    <i class='bx bx-table' ></i>
+                    <span class="p-2">Data Master</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -153,21 +164,13 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
+            @include('sweetalert::alert')
+            @yield('tables')
             <!-- Main Content -->
-            <div id="content">
-
-                <!-- Begin Page Content -->
-
-                    <!-- Page Heading -->
-                    <div class="container">
-                        @yield('tables')
-                    </div>
-            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white ">
+            <footer class="sticky-footer bg-info text-white">
                 <div class="container my-auto">
                     <div class="row">
                         <div class="col-sm">
@@ -201,10 +204,10 @@
                             </div>
                         </div>
                         <div class="col-sm h3 text-right">
-                            <a href="#"><i class='bx bxl-twitter' ></i></a>
-                            <a href="#"><i class='bx bxl-facebook'></i></a>
-                            <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                            <a href="#"><i class='bx bxl-instagram' ></i></a>
+                            <a href="#"><i class='bx bxl-twitter text-white' ></i></a>
+                            <a href="#"><i class='bx bxl-facebook text-white'></i></a>
+                            <a href="#"><i class='bx bxl-linkedin text-white' ></i></a>
+                            <a href="#"><i class='bx bxl-instagram text-white' ></i></a>
                         </div>
                     </div>         
                 </div>
@@ -264,6 +267,26 @@
         </div>
     </div>
 
+    <style>
+        .custom-link{
+            font-size: larger;
+            color: rgb(0, 0, 0);
+        }
+        #myInput {
+            background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+            background-position: 10px 12px; /* Position the search icon */
+            background-repeat: no-repeat; /* Do not repeat the icon image */
+            width: 80%; /* Full-width */
+            font-size: medium; /* Increase font-size */
+            padding: 1px 2px 1px 4px; /* Add some padding */
+            border: 1px solid #ddd; /* Add a grey border */
+            margin-bottom: 12px; /* Add some space below the input */
+            margin-top: 10px;
+            margin-right: 3px;
+            margin-left: 3px;
+        }
+    </style>
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{url('assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -281,6 +304,29 @@
 
     <!-- Page level custom scripts -->
     <script src="{{url('assets/js/demo/datatables-demo.js')}}"></script>
+    <script>
+        function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+            } else {
+            li[i].style.display = "none";
+            }
+        }
+        }
+</script>
+    </script>
+    
 
 </body>
 </html>

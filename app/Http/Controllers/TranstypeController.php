@@ -22,7 +22,7 @@ class transtypeController extends Controller
             'code' => strtoupper($request->code),
             'name' => ucwords(strtolower($request->name)),
         ]);
-        return redirect('/transtype')->with('tambah','Data berhasil ditambahkan');
+        return redirect('/transtype')->with('toast_success', 'Data Berhasil Tersimpan!');
     }
 
     public function edit($code){
@@ -39,7 +39,7 @@ class transtypeController extends Controller
             'code' => strtoupper($request->code),
             'name' => ucwords(strtolower($request->name)),
         ]);
-        return redirect('/transtype')->with('edit','Data berhasil diubah');
+        return redirect('/transtype')->with('toast_success', 'Data Berhasil Diupdate!');
     }
 
     public function delete($code){
@@ -48,7 +48,12 @@ class transtypeController extends Controller
             'deleted_at' => date('Y-m-d H:i:s')
         ]);
  
-    	return redirect('/transtype')->with('hapus','Data berhasil dihapus');
+    	return redirect('/transtype')->with('toast_success', 'Data Berhasil Dihapus!');
+    }
+
+    public function deletepermanen($code){
+        DB::table('m_transtype')->where('code',$code)->delete();
+        return redirect('/transtype/restore')->with('toast_success', 'Data Berhasil Dihapus Permanen!');
     }
 
     public function back($code){
@@ -56,7 +61,7 @@ class transtypeController extends Controller
             'deleted_at' => null
         ]);
 
-        return redirect('/transtype')->with('back','Data berhasil dipulihkan');
+        return redirect('/transtype')->with('toast_success', 'Data Berhasil Dipulihkan!');
     }
 
     public function restore(){
