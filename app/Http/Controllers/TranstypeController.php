@@ -14,8 +14,8 @@ class transtypeController extends Controller
 
     public function store(Request $request){
         $request ->validate([
-            'code' => 'required',
-            'name' => 'required',
+            'code' => 'required|max:2',
+            'name' => 'required|max:30',
         ]);
 
         DB::table('m_transtype')->insert([
@@ -32,8 +32,8 @@ class transtypeController extends Controller
 
     public function update(Request $request){
         $request ->validate([
-            'code' => 'required',
-            'name' => 'required'
+            'code' => 'required|max:2',
+            'name' => 'required|max:30',
         ]);
         DB::table('m_transtype')->where('code',$request->code)->update([
             'code' => strtoupper($request->code),

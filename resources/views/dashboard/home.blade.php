@@ -1,7 +1,7 @@
 @extends('layout.base')
 @section('tables')
 <div id="content" class="jumbotron">
-        <div class="container text-white text-vertical-center">
+        <div class="container text-white text-vertical-center" style="background-color: #2b26269e;">
                 <h1>Selamat Datang di Aplikasi Pergudangan Online</h1> <br> <br>
                 <h2>Anda Login Sebagai <b>Crysna</b> <br> Staff Gudang GSG - Gudang Lamongan</h2>    
         </div>

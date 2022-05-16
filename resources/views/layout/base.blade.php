@@ -50,19 +50,26 @@
             <span class="mr-2 d-none d-lg-inline text-white my-auto" id="time"></span>         
 
             <script>
-                var tanggallengkap = new String();
-                var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
-                namahari = namahari.split(" ");
-                var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
-                namabulan = namabulan.split(" ");
-                var tgl = new Date();
-                var hari = tgl.getDay();
-                var tanggal = tgl.getDate();
-                var bulan = tgl.getMonth();
-                var tahun = tgl.getFullYear();
-                tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun + "<br>" + tgl.getHours() + "." + tgl.getMinutes() + " WIB";
+                function realtime() {
+                    var tanggallengkap = new String();
+                    var namahari = ("Minggu Senin Selasa Rabu Kamis Jumat Sabtu");
+                    namahari = namahari.split(" ");
+                    var namabulan = ("Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember");
+                    namabulan = namabulan.split(" ");
+                    var tgl = new Date();
+                    var hari = tgl.getDay();
+                    var tanggal = tgl.getDate();
+                    var bulan = tgl.getMonth();
+                    var tahun = tgl.getFullYear();
+                    var s = tgl.getSeconds();
+                    var m = tgl.getMinutes();
+                    var h = tgl.getHours();
+                    tanggallengkap = namahari[hari] + ", " +tanggal + " " + namabulan[bulan] + " " + tahun + "<br>" + ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2) + " WIB";
 
-                document.getElementById("time").innerHTML = tanggallengkap;
+                    document.getElementById("time").innerHTML = tanggallengkap;
+                    setTimeout("realtime()", 1000);
+                }
+                realtime();
             </script>
 
 
@@ -126,8 +133,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link custom-link" href="/">
-                    <i class='bx bxs-dashboard'></i>
+                <a class="nav-link" href="/">
+                    <i class='bx bxs-dashboard custom-link'></i>
                     <span class="custom-link p-2">Dashboard</span></a>
             </li>
 
@@ -140,21 +147,21 @@
             <li class="nav-item">
                 <a class="nav-link collapsed custom-link" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class='bx bx-table' ></i>
-                    <span class="p-2">Data Master</span>
+                    <i class='bx bx-table custom-link'></i>
+                    <span class="custom-link p-2">Data Master</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tables :</h6>
                         <a class="collapse-item" href="/transtype">Transtype</a>
-                        <a class="collapse-item" href="/#">Company</a>
+                        <a class="collapse-item" href="/company">Company</a>
                         <a href="/#" class="collapse-item">Warehouse</a>
                         <a href="/#" class="collapse-item">Storage Facility</a>
                         <a href="/#" class="collapse-item">Storage Bin</a>
-                        <a href="/#" class="collapse-item">UOM</a>
-                        <a href="/#" class="collapse-item">Material Group</a>
-                        <a href="/#" class="collapse-item">Stock Status</a>
-                        <a href="/#" class="collapse-item">Material</a>
+                        <a href="/uom" class="collapse-item">UOM</a>
+                        <a href="/materialgroup" class="collapse-item">Material Group</a>
+                        <a href="/stockstatus" class="collapse-item">Stock Status</a>
+                        <a href="/material" class="collapse-item">Material</a>
                         <a href="/#" class="collapse-item">Movement</a>
                     </div>
                 </div>
@@ -179,7 +186,7 @@
                                     <i class='bx bx-location-plus h3'></i>
                                 </div>
                                 <div class="col-sm">
-                                    <span class="h5 my-auto bx">Alamat : Jl. Sudirman, Jakarta</span>
+                                    <span class="h5 my-auto bx">Alamat : Jl. R.A Kartini, Gresik</span>
                                 </div>
                             </div>   
                         </div>

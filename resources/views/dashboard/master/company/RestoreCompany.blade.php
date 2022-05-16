@@ -3,11 +3,12 @@
 <!-- DataTales Example -->
 <div id="content" class="mt-3">
     <div class="container">
+        
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between">
-                <h3>Restore Data Transtype</h3>
+                <h3>Restore Data Company</h3>
                 <div>
-                    <a href="/transtype" class="btn btn-secondary" type="button">Back</a>
+                    <a href="/company" class="btn btn-secondary" type="button">Back</a>
                 </div>
             </div>
             <div class="card-body">
@@ -15,24 +16,30 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>CODE</th>
                                 <th>NAME</th>
+                                <th>DESCRIPTION</th>
+                                <th>ADRESS</th>
                                 <th>DELETED AT</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($restoretranstype as $item)
+                            @foreach($restorecompany as $item)
                             @if($item->deleted_at != null)
                             <tr>
+                                <td>{{$item->id}}</td>
                                 <td>{{ $item->code }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{ $item->description }}</td>
+                                <td>{{ $item->address }}</td>
                                 <td>{{ $item->deleted_at }}</td>
                                 <td>
-                                    <a href="/transtype/restore/{{ $item->code }}" class="btn btn-primary">
+                                    <a href="/company/restore/{{ $item->id }}" class="btn btn-primary">
                                         <i class='bx bxs-left-top-arrow-circle'></i> Restore
                                     </a>
-                                    <a href="#" class="btn btn-danger delete" data-id="{{ $item->code }}" data-nama="{{ $item->name }}">
+                                    <a href="#" class="btn btn-danger delete" data-id="{{ $item->id }}" data-nama="{{ $item->name }}">
                                         <i class="fas fa-trash-alt"></i> Delete Permanen
                                     </a>
                                 </td>
@@ -61,7 +68,7 @@
         })
         .then((willDelete) => {
             if (willDelete) {
-                window.location = "/transtype/deletepermanen/"+id;
+                window.location = "/company/deletepermanen/"+id;
             }
         });
     });
