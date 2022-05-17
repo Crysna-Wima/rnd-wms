@@ -70,3 +70,39 @@ Route::get('/material/delete/{id}', 'App\Http\Controllers\materialController@del
 Route::get('/material/deletepermanen/{id}', 'App\Http\Controllers\materialController@deletepermanen');
 Route::get('/material/restore', 'App\Http\Controllers\materialController@restore');
 Route::get('/material/restore/{id}', 'App\Http\Controllers\materialController@back');
+
+Route::get('/warehouse', 'App\Http\Controllers\warehouseController@index');
+Route::post('/warehouse/store','App\Http\Controllers\warehouseController@store');
+Route::get('/warehouse/edit/{id}','App\Http\Controllers\warehouseController@edit');
+Route::post('/warehouse/update','App\Http\Controllers\warehouseController@update');
+Route::get('/warehouse/delete/{id}', 'App\Http\Controllers\warehouseController@delete');
+Route::get('/warehouse/deletepermanen/{id}', 'App\Http\Controllers\warehouseController@deletepermanen');
+Route::get('/warehouse/restore', 'App\Http\Controllers\warehouseController@restore');
+Route::get('/warehouse/restore/{id}', 'App\Http\Controllers\warehouseController@back');
+
+Route::get('/storagefacility', 'App\Http\Controllers\storagefacilityController@index');
+Route::post('/storagefacility/store','App\Http\Controllers\storagefacilityController@store');
+Route::get('/storagefacility/edit/{id}','App\Http\Controllers\storagefacilityController@edit');
+Route::post('/storagefacility/update','App\Http\Controllers\storagefacilityController@update');
+Route::get('/storagefacility/delete/{id}', 'App\Http\Controllers\storagefacilityController@delete');
+Route::get('/storagefacility/deletepermanen/{id}', 'App\Http\Controllers\storagefacilityController@deletepermanen');
+Route::get('/storagefacility/restore', 'App\Http\Controllers\storagefacilityController@restore');
+Route::get('/storagefacility/restore/{id}', 'App\Http\Controllers\storagefacilityController@back');
+
+Route::get('/storagebin', 'App\Http\Controllers\storagebinController@index');
+Route::post('/storagebin/store','App\Http\Controllers\storagebinController@store');
+Route::get('/storagebin/edit/{id}','App\Http\Controllers\storagebinController@edit');
+Route::post('/storagebin/update','App\Http\Controllers\storagebinController@update');
+Route::get('/storagebin/delete/{id}', 'App\Http\Controllers\storagebinController@delete');
+Route::get('/storagebin/deletepermanen/{id}', 'App\Http\Controllers\storagebinController@deletepermanen');
+Route::get('/storagebin/restore', 'App\Http\Controllers\storagebinController@restore');
+Route::get('/storagebin/restore/{id}', 'App\Http\Controllers\storagebinController@back');
+
+Route::get('/movement', 'App\Http\Controllers\movementController@index');
+Route::post('/movement/store','App\Http\Controllers\movementController@store');
+Route::get('/movement/edit/{id}','App\Http\Controllers\movementController@edit');
+Route::post('/movement/update','App\Http\Controllers\movementController@update');
+Route::get('/movement/delete/{id}', 'App\Http\Controllers\movementController@delete');
+Route::get('/movement/deletepermanen/{id}', 'App\Http\Controllers\movementController@deletepermanen');
+Route::get('/movement/restore', 'App\Http\Controllers\movementController@restore');
+Route::get('/movement/restore/{id}', 'App\Http\Controllers\movementController@back');

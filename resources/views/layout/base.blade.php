@@ -155,14 +155,14 @@
                         <h6 class="collapse-header">Tables :</h6>
                         <a class="collapse-item" href="/transtype">Transtype</a>
                         <a class="collapse-item" href="/company">Company</a>
-                        <a href="/#" class="collapse-item">Warehouse</a>
-                        <a href="/#" class="collapse-item">Storage Facility</a>
-                        <a href="/#" class="collapse-item">Storage Bin</a>
+                        <a href="/warehouse" class="collapse-item">Warehouse</a>
+                        <a href="/storagefacility" class="collapse-item">Storage Facility</a>
+                        <a href="/storagebin" class="collapse-item">Storage Bin</a>
                         <a href="/uom" class="collapse-item">UOM</a>
                         <a href="/materialgroup" class="collapse-item">Material Group</a>
                         <a href="/stockstatus" class="collapse-item">Stock Status</a>
                         <a href="/material" class="collapse-item">Material</a>
-                        <a href="/#" class="collapse-item">Movement</a>
+                        <a href="/movement" class="collapse-item">Movement</a>
                     </div>
                 </div>
             </li>
